@@ -1,0 +1,327 @@
+/** @font-face */
+@font-face {
+font-family: Splatoon1;
+src:
+	url('./woff/s1kanji.woff2') format('woff2'),
+	url('./woff/s1kanji.woff') format('woff');
+}
+@font-face {
+font-family: Splatoon1;
+src:
+	url('./woff/s1kana.woff2') format('woff2'),
+	url('./woff/s1kana.woff') format('woff');
+}
+@font-face {
+font-family: Splatoon2;
+src:
+	url('./woff/s2kanji.woff2') format('woff2'),
+	url('./woff/s2kanji.woff') format('woff');
+}
+@font-face {
+font-family: Splatoon2;
+src:
+	url('./woff/s2kana.woff2') format('woff2'),
+	url('./woff/s2kana.woff') format('woff');
+}
+/** html */
+html {
+	font-size: 22px;
+}
+/** body */
+body {
+	transition-property: color, background;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+	font-family: Splatoon2, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #555555;
+	--color-1: #ffffff;
+	--color-2: #f2f2f2;
+	background: white;
+	background: radial-gradient(
+		var(--color-1) 10%,
+		var(--color-2) 100%
+	);
+	background-attachment: fixed;
+}
+h1, div, p, span {
+	margin: 0;
+	padding: 0;
+}
+h1 {
+	font-size: 2.2rem;
+	font-weight: normal;
+}
+/** #contents */
+#contents {
+	margin: 50px;
+	/* padding-bottom: 5rem; */
+}
+/** #buttons-wrapper */
+#buttons-wrapper {
+	font-size: 1rem;
+	margin-top: 0px;
+}
+/** select */
+select {
+	color: #555555;
+	font-size: 1rem;
+	font-family: Splatoon2;
+	padding: 0;
+	margin: 0;
+}
+/** .div-button */
+.div-button {
+	display: inline-block;
+	color: White;
+	vertical-align: super;
+	width: 7rem;
+	height: 2rem;
+	line-height: 2rem;
+	text-align: center;
+	margin-top: 1rem;
+	cursor: pointer;
+	user-select: none;
+	box-sizing: border-box;
+}
+#undo-button {
+	--color: #03A9F4;
+}
+#redo-button {
+	--color: #03A9F4;
+}
+#undo-button,
+#redo-button {
+	background-color: var(--color);
+	color: #fff;
+}
+#undo-button:hover,
+#redo-button:hover {
+	filter: brightness(110%);
+}
+/** #fukidashi-button */
+#fukidashi-button {
+	--color: #00c3ad;
+}
+#clear-button {
+	--color: #e91e63;
+}
+#satistics-button {
+	--color: #673AB7;
+}
+#fukidashi-button,
+#clear-button,
+#satistics-button {
+	border: 1px solid var(--color);
+	color: var(--color);
+	font-size: 0.8rem;
+}
+#fukidashi-button:hover,
+#clear-button:hover,
+#satistics-button:hover {
+	background-color:var(--color);
+	color: #fff;
+}
+/** #weapons-wrapper */
+#weapons-wrapper {
+	margin-top: 100px;
+}
+/** .weapon-container */
+.weapon-container {
+	display: inline-block;
+	position: relative;
+	margin: 15px;
+	margin-bottom: 60px;
+}
+	/** .weapon-count */
+	.weapon-count {
+		position: absolute;
+		display: none;
+		top: calc(-27px * (1 - var(--scale)));
+		right: calc(-40px * (1 - var(--scale)));
+		width: 80px;
+		height: 55px;
+		line-height: 55px;
+		text-align: center;
+		font-size: 30px;
+		color: White;
+		background-image: url('./fukidashi.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+		text-shadow: 3px 3px 0px Black;
+		filter: drop-shadow(3px 3px 0px Black);
+		cursor: pointer;
+		user-select: none;
+		--scale:  1;
+		transform-origin: center center;
+		transform: scale(var(--scale));
+	}
+	.count-animation {
+		animation-name: count-keyframes;
+		animation-duration: 300ms;
+		animation-iteration-count: 1;
+		animation-timing-function: ease-in;
+	}
+	@keyframes count-keyframes {
+	    0% {
+	    	transform: scale(calc(var(--scale) * 1.3));
+	    } 30% {
+	    	transform: scale(calc(var(--scale) * 1));
+	    }
+	}
+	.gained .weapon-count,
+	.plural-gained .weapon-count {
+		display: inline-block;
+	}
+	.weapon-count-disabled .weapon-count {
+		display: none!important;
+	}
+	.weapon-image {
+		position: relative;
+		display: inline-block;
+		width: 180px;
+		height: 180px;
+		background-size: 180px;
+		background-repeat: no-repeat;
+		border: none;
+		cursor: pointer;
+		-webkit-box-reflect: below 2px -webkit-gradient(linear, 0 0, 0 100%,
+			from(transparent),
+			color-stop(0.7, transparent),
+			to(rgba(0, 0, 0, 0.4))
+		);
+		user-select: none;
+	}
+	.weapon-image:after {
+		content: '';
+		display: inline-block;
+		position: relative;
+		top: 99%;
+		left: 5%;
+		width: 100%;
+		height: 100%;
+		background-image: url('weapon/shadow.png');
+		background-size: 90%;
+		background-repeat: no-repeat;
+	}
+	.gained {
+	}
+	.gained .weapon-image:hover {
+		filter: brightness(110%);
+	}
+	.ungained .weapon-image {
+		opacity: 0.35;
+		filter: grayscale(30%);
+	}
+	.ungained .weapon-image:hover {
+		opacity: 0.5;
+		filter: grayscale(10%);
+	}
+	.ungained .weapon-image {
+		-webkit-box-reflect: initial;
+	}
+	.ungained .weapon-image:after {
+		opacity: 0;
+	}
+	.plural-gained {
+	}
+	.hidden {
+		display: none;
+	}
+/** #statistics-wrapper */
+#statistics-wrapper {
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(255, 255, 255, 0.9);
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: none;
+	overflow-y: auto;
+}
+	/** #statistics-close */
+	#statistics-close {
+		margin-top: 1.2rem;
+		border: 1px solid #673AB7;
+		color: #673AB7;
+		font-size: 0.8rem;
+}
+	#statistics-close:hover {
+		background-color: #673AB7;
+		color: White;
+	}
+/** #total-count */
+#total-count {
+	margin: 1.2rem;
+	display: inline-block;
+}
+/** #statistics-table */
+#statistics-table {
+	display: inline-block;
+	margin-bottom: 3rem;
+}
+	#statistics-table img {
+		width: 1.8rem;
+		height: 1.8rem;
+		margin-right: 0.4rem;
+		vertical-align: middle;
+	}
+	#statistics-table tr td:nth-child(1) {
+		width: auto;
+	}
+	#statistics-table tr td:nth-child(2) {
+		width: 4rem;
+		text-align: right;
+	}
+	#statistics-table tr td:nth-child(3) {
+		width: 5rem;
+		text-align: right;
+	}
+body.theme-light {
+	color: #555;
+	background: #fff;
+	--color-1: #fff;
+	--color-2: #f2f2f2;
+}
+body.theme-dark {
+	color: #eee;
+	background: #111;
+	--color-1: #445;
+	--color-2: #334;
+}
+body.theme-dark #satistics-button {
+	--color: #b992ff;
+}
+body.theme-dark .ungained .weapon-image {
+	opacity: 0.4;
+}
+body.theme-dark #statistics-wrapper {
+	background: rgba(0, 0, 0, 0.9);
+	color: #eee;
+}
+
+/** ～600px */
+@media screen and (max-width: 640px) {
+	html {
+		font-size: 14px;
+	/*
+		font-size: calc(640px / 100 * var(--font-scale));
+	*/
+	}
+	#contents {
+		margin: 2rem;
+	}
+}
+
+
+#footer {
+	color: #999;
+	margin-top: 150px;
+	font-size: 0.7rem;
+}
+a {
+	color: #999;
+  text-decoration: none;
+}
