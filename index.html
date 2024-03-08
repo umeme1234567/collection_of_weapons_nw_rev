@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+    <title class="trans" en="Collection Of Salmon Run Next Wave Weapons">NW版サーモンランブキコレクション</title>
+    <meta name="og:title" content="NW版サーモンランブキコレクション">
+    <meta name="description"    content="ランダム回で引いたブキを数えるやつ。">
+    <meta name="og:description" content="ランダム回で引いたブキを数えるやつ。">
+    <meta name="og:image" content="https://takenocotoon.github.io/collection_of_weapons_nw/thumb_count.png">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="website">
+    <link rel="canonical"      href="https://takenocotoon.github.io/collection_of_weapons_nw/">
+    <meta property="og:url" content="https://takenocotoon.github.io/collection_of_weapons_nw/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@takenocotoon">
+    <link rel="icon" type="image/png" href="thumb_count.png">
+    <link rel="apple-touch-icon"      href="thumb_count.png">
+    <link rel="manifest" href="manifest.json">
+	  <script src="./main.js?5"></script>
+	  <link href="./style.css?3" rel="stylesheet">
+  </head>
+  <body style="transition: none;">
+    <div id="contents">
+      <h1 id="h1" class="trans" en="Collection Of Salmon Run Weapons">NW版サーモンランブキコレクション</h1>
+      <p class="trans" en="You can count by tapping weapons.">ブキをタップしてカウントできます。</p>
+      <p class="trans" en="When you tap the number, the number will decrease.">数字部分をタップすると、カウントを減らすことができます。</p>
+      <div id="buttons-wrapper">
+        <p><span class="trans" en="Operation when you touch counted weapons">カウント済みのブキをタップしたときの動作</span>:
+        <select id="increase-select">
+          <option value="1" class="trans" en="Increase">さらにカウントを増やす</option>
+          <option value="0" class="trans" en="Decrease">カウントを減らす</option>
+        </select></p>
+        <p><span class="trans" en="Grizzco weapons appearing">出現するクマブキ</span>:
+        <select id="grizzco-select">
+          <option value="20000" class="trans" en="Grizzco Blaster">クマサン印のブラスター</option>
+          <option value="20010" class="trans" en="Grizzco Brella">クマサン印のシェルター</option>
+          <option value="20020" class="trans" en="Grizzco Charger">クマサン印のチャージャー</option>
+          <option value="20030" class="trans" en="Grizzco Slosher">クマサン印のスロッシャー</option>
+          <option value="20040" class="trans" en="Grizzco Stringer">クマサン印のストリンガー</option>
+          <option value="20050" class="trans" en="Grizzco Splatana">クマサン印のワイパー</option>
+          <option value="20060" class="trans" en="Grizzco Splatana">クマサン印のマニューバー</option>
+          <option value="21000" class="trans" en="All">すべて</option>
+        </select></p>
+        <p><span class="trans" en="Color Theme">カラーテーマ</span>:
+        <select id="theme-select">
+          <option value="light" class="trans" en="Light">ホワイト</option>
+          <option value="dark" class="trans" en="Dark">ブラック</option>
+        </select></p>
+        <div class="div-button trans" id="undo-button" onclick="myUndo();" en="Undo">もどす</div>
+        <div class="div-button trans" id="redo-button" onclick="myRedo();" en="Redo">すすめる</div>
+        <div class="div-button trans" id="fukidashi-button" onclick="myToggleCounter();" en="Hide Counts">カウントを隠す</div>
+        <div class="div-button trans" id="clear-button" onclick="myClear();" en="Reset All">すべてリセット</div>
+        <div class="div-button trans" id="satistics-button" onclick="myStatistics();" en="Statistics">統計</div>
+      </div>
+      <div id="weapons-wrapper"></div>
+      <div id="footer">
+        <p>Copyright (c) 2020 GungeeSpla <a href="https://github.com/GungeeSpla/collection_of_weapons/blob/master/LICENSE">Released under the MIT license</a></p>
+        <p><a href="https://gungeespla.github.io/collection_of_weapons/">@gungeespla さんの サーモンランブキコレクション</a> を NW用に改変させて頂きました。 (<a href="https://twitter.com/takenocotoon">@takenocotoon</a>)</p>
+      </div>
+    </div>
+    <div id="statistics-wrapper">
+    	<div class="div-button" id="statistics-close"></div><br>
+    	<span id="total-count"></span><br>
+    	<table id="statistics-table"></table>
+    </div>
+  </body>
+</html>
